@@ -1,4 +1,4 @@
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer , gamePlaying;
 init();
 
 
@@ -7,7 +7,9 @@ init();
 //Adding an Event Listner and an anonymous function that doesn't have name and cannot be used further anywhere.
 document.querySelector('.btn-roll').addEventListener('click', function() {
   
-  // 1. Make a random number.
+  if(gamePlaying)
+    {
+       // 1. Make a random number.
   var dice = Math.floor(Math.random() * 6) + 1;
   
   //2. Display the result.
@@ -40,13 +42,18 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     nextPlayer();
     
   }
+      
+    }
+  
+ 
 })
 
 
 // Implementing Hold Button.
 document.querySelector('.btn-hold').addEventListener('click' , function(){
-
-  // Update the Score.
+  if(gamePlaying)
+    {
+      // Update the Score.
      scores[activePlayer] = roundScore + scores[activePlayer];
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
     
@@ -58,6 +65,7 @@ document.querySelector('.btn-hold').addEventListener('click' , function(){
       document.querySelector('.dice').style.display = 'none';
       document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+      gamePlaying = false;
 
 
     }
@@ -66,6 +74,9 @@ document.querySelector('.btn-hold').addEventListener('click' , function(){
      // Chnage the turn 
   nextPlayer();
   }
+    }
+
+  
 
   
  
@@ -100,6 +111,7 @@ function init(){
   scores = [0,0];
 activePlayer = 0;
 roundScore = 0;
+  gamePlaying = true;
   
   // Hide the dice 
 document.querySelector('.dice').style.display = 'none';
@@ -115,7 +127,7 @@ document.querySelector('.player-0-panel').classList.remove('winner');
 document.querySelector('.player-1-panel').classList.remove('winner');
 document.querySelector('.player-0-panel').classList.remove('active');
 document.querySelector('.player-1-panel').classList.remove('active');
-document.querySelector('.player-1-panel').classList.add('active');  
+document.querySelector('.player-0-panel').classList.add('active');  
   
   
   
