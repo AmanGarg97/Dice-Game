@@ -1,16 +1,8 @@
 var scores, roundScore, activePlayer;
-scores = [0,0];
-activePlayer = 0;
-roundScore = 0;
+init();
 
-// Hide the dice 
-document.querySelector('.dice').style.display = 'none';
 
-//Updating initial scores to 0
-document.getElementById('score-0').textContent = 0;
-document.getElementById('score-1').textContent = 0;
-document.getElementById('current-0').textContent = 0;
-document.getElementById('current-1').textContent = 0;
+
 
 //Adding an Event Listner and an anonymous function that doesn't have name and cannot be used further anywhere.
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -81,6 +73,8 @@ document.querySelector('.btn-hold').addEventListener('click' , function(){
  
 })
 
+document.querySelector('.btn-new').addEventListener('click' , init )
+
 function nextPlayer(){
   
 //  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
@@ -100,5 +94,23 @@ function nextPlayer(){
     document.getElementById('current-0').textContent = 0;
     document.getElementById('current-1').textContent = 0;
 
+}
 
+function init(){
+  scores = [0,0];
+activePlayer = 0;
+roundScore = 0;
+  
+  // Hide the dice 
+document.querySelector('.dice').style.display = 'none';
+
+//Updating initial scores to 0
+document.getElementById('score-0').textContent = 0;
+document.getElementById('score-1').textContent = 0;
+document.getElementById('current-0').textContent = 0;
+document.getElementById('current-1').textContent = 0;
+document.getElementById('name-0').textContent = 'Player 1';  
+document.getElementById('name-1').textContent = 'Player 2';  
+  
+  
 }
