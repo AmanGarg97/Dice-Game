@@ -1,8 +1,8 @@
-#Dice Game
+# Dice Game
 
 This is a simple Dice Game also known as pig Game.It caan be played between two players at a time.
 
-#Game Rules 
+# Game Rules 
 
 1. The game has 2 players, playing in rounds.
 2. In each turn, a player rolls a dice as many times as he wishes. Each result get added to his ROUND score.
