@@ -1,6 +1,6 @@
 # Dice Game
 
-This is a simple Dice Game also known as pig Game.It caan be played between two players at a time.
+This is a simple Dice Game also known as pig Game.It can be played between two players at a time.
 
 # Game Rules 
 
